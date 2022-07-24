@@ -16,4 +16,4 @@ I hope to improve it over time as I learn more, or release a V2 with better UI a
 
 Thank you for checking this out. As always, I welcome suggestions and help.
 
-Remember to check the live demo at: 
+Remember to check the live demo at: https://whitelist-dapp.claudiusayadi.vercel.app/
