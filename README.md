@@ -1,4 +1,4 @@
-#Welcome to my NFT Collection Whitelist Dapp
+# Welcome to my NFT Collection Whitelist Dapp
 
 This is my second DApp and a continuation of the Learn Web3 series from the https://learnweb3.io tracks.
 
