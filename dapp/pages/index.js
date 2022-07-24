@@ -48,11 +48,7 @@ export default function Home() {
       const signer = await getProviderOrSigner(true);
 
       // make a new contract instance with signer
-      const Whitelist = new Contract(
-        WHITELIST_CONTRACT_ADDRESS,
-        abi,
-        signer
-      );
+      const Whitelist = new Contract(WHITELIST_CONTRACT_ADDRESS, abi, signer);
 
       // call the addAddressToWhitelist() from the contract
       const tx = await Whitelist.addAddressToWhitelist();
@@ -62,7 +58,7 @@ export default function Home() {
       await tx.wait();
       setLoading(false);
 
-      // get updated number of whitelisted addresses
+      // record the updated number of whitelisted addresses
       await getNumberOfWhitelisted();
       setJoinedWhitelist(true);
     } catch (error) {
@@ -76,15 +72,10 @@ export default function Home() {
       // get provider from web3Modal
       const provider = await getProviderOrSigner();
 
-      const Whitelist = new Contract(
-        WHITELIST_CONTRACT_ADDRESS,
-        abi,
-        provider
-      );
+      const Whitelist = new Contract(WHITELIST_CONTRACT_ADDRESS, abi, provider);
 
       // call numAddressesWhitelisted state variable from the contract
-      const _numberOfWhitelisted =
-        await Whitelist.numAddressesWhitelisted();
+      const _numberOfWhitelisted = await Whitelist.numAddressesWhitelisted();
       setNumberOfWhitlisted(_numberOfWhitelisted);
     } catch (error) {
       console.error(error);
@@ -96,19 +87,13 @@ export default function Home() {
     try {
       // get signer
       const signer = await getProviderOrSigner(true);
-      const Whitelist = new Contract(
-        WHITELIST_CONTRACT_ADDRESS,
-        abi,
-        signer
-      );
+      const Whitelist = new Contract(WHITELIST_CONTRACT_ADDRESS, abi, signer);
 
       // get signer's (user's) address
       const address = await signer.getAddress();
 
       // call the mapping name from the contract
-      const _joinedWhitelist = await Whitelist.whitelistedAddresses(
-        address
-      );
+      const _joinedWhitelist = await Whitelist.whitelistedAddresses(address);
 
       setJoinedWhitelist(_joinedWhitelist);
     } catch (error) {
@@ -136,11 +121,12 @@ export default function Home() {
       if (joinedWhitelist) {
         return (
           <div className={styles.description}>
-            You have succesfully joined the whitelist! Thanks for using my DApp.
+            You have succesfully joined the whitelist already! Thanks for using
+            my DApp.
           </div>
         );
       } else if (loading) {
-        return <button className={styles.button}>Loading...</button>;
+        return <button className={styles.button}>Confirming...</button>;
       } else {
         return (
           <button onClick={addAddressToWhitelist} className={styles.button}>
@@ -183,9 +169,18 @@ export default function Home() {
             It is my first fullstack dapp using Solidity, React and Next.js. I
             hope you like it!
           </div>
+          <div className={styles.note}>
+            If you came here from my GitHub page, I believed you would have read
+            the README.md file already.
+            <br/>
+            You can skip this section. If not, go here to read it in order to understand how the DApp works: 
+            <br/>
+            <a href="https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/README.md">https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/</a>
+          </div>
           <div className={styles.description}>
-            {numberOfWhitelisted} have already joined this whitelist, be the next
-            person.
+            Number of Addresses Whitelisted: {numberOfWhitelisted}
+            <br/>
+            Maximum Limit: 10 Addresses
           </div>
           {renderButton()}
         </div>
@@ -194,7 +189,7 @@ export default function Home() {
         </div>
       </div>
       <footer className={styles.footer}>
-        Made with &#10084; by Claudius A.
+        Made with ❤️️ by Claudius A.
       </footer>
     </div>
   );
