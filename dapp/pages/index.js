@@ -172,14 +172,17 @@ export default function Home() {
           <div className={styles.note}>
             If you came here from my GitHub page, I believed you would have read
             the README.md file already.
-            <br/>
-            You can skip this section. If not, go here to read it in order to understand how the DApp works: 
-            <br/>
-            <a href="https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/README.md">https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/</a>
+            <br />
+            You can skip this section. If not, go here to read it in order to
+            understand how the DApp works:
+            <br />
+            <a href="https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/README.md">
+              https://github.com/claudiusayadi/whitelist-dapp/blob/5392aca4fbf568b1e928861176401284ca1da0b3/
+            </a>
           </div>
           <div className={styles.description}>
             Number of Addresses Whitelisted: {numberOfWhitelisted}
-            <br/>
+            <br />
             Maximum Limit: 10 Addresses
           </div>
           {renderButton()}
@@ -188,9 +191,7 @@ export default function Home() {
           <img className={styles.image} src="./crypto-devs.svg" />
         </div>
       </div>
-      <footer className={styles.footer}>
-        Made with ❤️️ by Claudius A.
-      </footer>
+      <footer className={styles.footer}>Made with ❤️️ by wetNode.</footer>
     </div>
   );
 }
